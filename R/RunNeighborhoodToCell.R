@@ -84,6 +84,7 @@ RunNeighborhoodToCell <- function(node.object,
   # bug fix: add the Neighborhood - prefix
 
   receiving_type.meta <- data.frame(Seurat::Idents(node.object)[barcodes])
+  receiving_type.meta$barcode <- rownames(receiving_type.meta)
   rownames(receiving_type.meta) <- paste("Neighborhood",rownames(receiving_type.meta),sep = '—')
 
   
