@@ -84,10 +84,11 @@ RunCellToNeighborhood <- function(node.object,
   # bug fix: add the Neighborhood - prefix
 
   sending_type.meta <- data.frame(Seurat::Idents(node.object)[barcodes])
+  sending_type.meta$barcode <- rownames(sending_type.meta)
   rownames(sending_type.meta) <- paste(rownames(sending_type.meta),"Neighborhood",sep = '—')
 
   
-  demo <- Seurat::AddMetaData(demo,metadata = sending_type.meta,col.name = c("SendingType"))
+  demo <- Seurat::AddMetaData(demo,metadata = sending_type.meta,col.name = c("SendingType","SendingCell"))
 
   # Gather and assemble additional metadata
   if (!is.null(meta.data.to.map)){
