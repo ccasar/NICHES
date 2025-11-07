@@ -87,7 +87,7 @@ RunCellToNeighborhood <- function(node.object,
   rownames(sending_type.meta) <- paste(rownames(sending_type.meta),"Neighborhood",sep = '—')
 
   
-  demo <- Seurat::AddMetaData(demo,metadata = sending_type.meta,col.name = c("SendingCell","SendingType"))
+  demo <- Seurat::AddMetaData(demo,metadata = sending_type.meta,col.name = c("SendingType"))
 
   # Gather and assemble additional metadata
   if (!is.null(meta.data.to.map)){
